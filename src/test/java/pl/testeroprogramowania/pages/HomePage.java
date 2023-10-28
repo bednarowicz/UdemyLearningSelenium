@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
     private WebDriver driver;
+    @FindBy(linkText = "Shop")
+    private WebElement shopButton;
     @FindBy(xpath = "//span[text()='My account']")
     private WebElement myAccountLink;
 
@@ -18,5 +20,9 @@ public class HomePage {
     public MyAccountPage openMyAccountPage() {
         myAccountLink.click();
         return new MyAccountPage(driver);
+    }
+    public ProductListPage openMyShop() {
+        shopButton.click();
+        return new ProductListPage(driver);
     }
 }
