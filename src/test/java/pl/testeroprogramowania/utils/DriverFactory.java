@@ -8,10 +8,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.Properties;
 
 public class DriverFactory {
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         //String name = PropertiesLoader.loadProperty("browser.name");
         String name = "fisssrefox";
-        if (name.equals("firefox")){
+        if (name.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
         } else {

@@ -16,6 +16,12 @@ public class MyAccountPage {
     private WebElement signUpReqEmailInput;
     @FindBy(id = "reg_password")
     private WebElement signUpReqPasswordInput;
+    @FindBy(id = "username")
+    private WebElement usernameInput;
+    @FindBy(name = "login")
+    private WebElement loginButton;
+    @FindBy(id = "password")
+    private WebElement passwordInput;
 
     public MyAccountPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -40,6 +46,19 @@ public class MyAccountPage {
         signUpReqEmailInput.sendKeys(email);
         signUpReqPasswordInput.sendKeys(password);
         submitSignUp.click();
+    }
+    public LoggedUserPage logInValidData(String username, String password){
+        logIn(username, password);
+        return new LoggedUserPage(driver);
+    }
+    public MyAccountPage logInInValidData(String username, String password){
+        logIn(username, password);
+        return this;
+    }
+    private void logIn(String username, String password){
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        loginButton.click();
     }
 
 }
